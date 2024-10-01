@@ -9,6 +9,7 @@ import RegistraionPage from '../Pages/RegistraionPage'
 import UserDetails from './UserDetails'
 import AlbumItem from './AlbumItem'
 import Navbar from './Navbar'
+import ResetPassword from '../Pages/ResetPassword'
 
 const Display = () => {
     const [user, setUser] = useState();
@@ -37,6 +38,7 @@ const Display = () => {
                                         <Route path='/' element={<DisplayHome />} />
                                         <Route path='/user-details/getPlaylist/:id' element={<AlbumItem />} />
                                         <Route path="/user-details" element={<UserDetails />} />
+                                        <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
                                     </Routes>
                                 </div>
                             </div>
