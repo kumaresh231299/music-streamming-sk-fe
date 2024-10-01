@@ -38,7 +38,6 @@ const Display = () => {
                                         <Route path='/' element={<DisplayHome />} />
                                         <Route path='/user-details/getPlaylist/:id' element={<AlbumItem />} />
                                         <Route path="/user-details" element={<UserDetails />} />
-                                        <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
                                     </Routes>
                                 </div>
                             </div>
@@ -55,6 +54,9 @@ const Display = () => {
                     ) : (
                         <RegistraionPage setFrom={setFrom} />
                     )}
+                    <Routes>
+                    <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
+                    </Routes>
                 </div>
             )}
         </div>
