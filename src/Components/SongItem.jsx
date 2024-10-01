@@ -17,7 +17,7 @@ const SongItem = ({ index, name, img, desc, id, url, category }) => {
       className="card bg-secondary"
       style={{ width: "10rem" }}> 
       
-      <img src={img} class="card-img-top" alt="songImg" />
+      <img src={img} class="card-img-top" alt="songImg" className="p-1" />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p class="card-text">{desc.length > 50 ? `${desc.slice(0, 80)}...` : desc}</p>

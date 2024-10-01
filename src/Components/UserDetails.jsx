@@ -50,7 +50,7 @@ const UserDetails = () => {
     const handleSave = async (values) => {
         try {
             const response = await axios.put(
-                `http://localhost:4000/api/update/user-details/${user?.result?._id}`,
+                `https://music-streamming-sk-app-be.onrender.com/api/update/user-details/${user?.result?._id}`,
                 values
             );
             // Response data updated to user localStorage

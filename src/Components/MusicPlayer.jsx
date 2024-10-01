@@ -22,7 +22,7 @@ export default function MusicPlayer() {
 
     return (
         <div className="fixed-bottom bg-dark"> 
-            <div className="container-fluid"> 
+            <div className=""> 
                 <div className="row justify-content-center"> 
                     <div className="col-lg-12 col-md-12 col-sm-12"> 
                         <div className="card bg-black text-white">

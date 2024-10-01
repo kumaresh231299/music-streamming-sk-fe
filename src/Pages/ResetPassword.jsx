@@ -31,7 +31,7 @@ const ResetPassword = () => {
         onSubmit: async (values) => {
             const payload = { newPassword: values.newPassword };
             try {
-                const res = await axios.put(`http://localhost:4000/api/user/reset-password/${id}/${token}`, payload);
+                const res = await axios.put(`https://music-streamming-sk-app-be.onrender.com/api/user/reset-password/${id}/${token}`, payload);
                 toast.success(res.data.message);
                 setTimeout(() => {
                     navigate('/login');

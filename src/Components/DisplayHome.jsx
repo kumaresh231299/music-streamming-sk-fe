@@ -21,15 +21,15 @@ const DisplayHome = () => {
         const fetchSongs = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:4000/api/audio/upload-audio"
+                    "https://music-streamming-sk-app-be.onrender.com/api/audio/upload-audio"
                 );
                 setSongs(response.data.result);
 
                 const getPlatlist = await axios.get(
-                    `http://localhost:4000/api/update/user-details/getPlaylist/${userID}`
+                    `https://music-streamming-sk-app-be.onrender.com/api/update/user-details/getPlaylist/${userID}`
                 );
                 setPlaylist(getPlatlist?.data?.playlist || []); // Set to an empty array if undefined
-                console.log("getPlatlist:   ", getPlatlist);
+                // console.log("getPlatlist:   ", getPlatlist);
                 // setPlaylist(getPlatlist);
             } catch (error) {
                 console.error("Error fetching songs:", error);

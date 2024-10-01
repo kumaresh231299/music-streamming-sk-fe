@@ -19,7 +19,7 @@ const AlbumItem = () => {
     const fetchPlaylistDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/api/update/playlist/${id}`
+          `https://music-streamming-sk-app-be.onrender.com/api/update/playlist/${id}`
         );
         setPlaylistDetails(response?.data?.playlist);
         setSongs(response?.data?.playlist?.playlist);

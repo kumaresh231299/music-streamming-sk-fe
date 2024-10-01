@@ -51,7 +51,7 @@ const CreatePlaylistModal = () => {
 
             //Update user playlist using the backend API
             const response = await axios.post(
-                `http://localhost:4000/api/update/user-details/createPlaylist/${userID}`,
+                `https://music-streamming-sk-app-be.onrender.com/api/update/user-details/createPlaylist/${userID}`,
                 updatedUser
             );
             alert("Playlist created successfully");

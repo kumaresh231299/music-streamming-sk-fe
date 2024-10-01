@@ -20,7 +20,7 @@ const ForgotPassword = ({ setFrom }) => {
         onSubmit: async (values) => {
             const payload = { email: values.email };
             try {
-                const res = await axios.post("http://localhost:4000/api/user/forgot-password", payload);
+                const res = await axios.post("https://music-streamming-sk-app-be.onrender.com/api/user/forgot-password", payload);
                 toast.success(res.data.message || "Reset link sent successfully", {
                     position: "top-right",
                     autoClose: 3000,

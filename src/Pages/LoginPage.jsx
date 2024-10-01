@@ -13,7 +13,7 @@ const LoginPage = ({ setFrom, setUser }) => {
     const [showPassword, setShowPassword] = useState(false);
     const [userId, setUserId] = useState();
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     // Toast function
     const showToastMessage = (msg, type) => {
@@ -37,7 +37,7 @@ const LoginPage = ({ setFrom, setUser }) => {
         onSubmit: async (values) => {
             const payload = { email: values.email, password: values.password };
             try {
-                const res = await axios.post("http://localhost:4000/api/user/login-user", payload);
+                const res = await axios.post("https://music-streamming-sk-app-be.onrender.com/api/user/login-user", payload);
                 showToastMessage(res.data.message, "success");
                 const userInfo = res.data; 
                 localStorage.setItem("user", JSON.stringify(userInfo));
