@@ -43,6 +43,7 @@ const Sidebar = () => {
                                 className="btn btn-light text-dark"
                                 onClick={() => {
                                     localStorage.removeItem("user");
+                                    navigate("/")
                                     window.location.reload();
                                 }}
                             >
@@ -86,6 +87,7 @@ const Sidebar = () => {
                                 className="btn btn-light text-dark"
                                 onClick={() => {
                                     localStorage.removeItem("user");
+                                    navigate("/")
                                     window.location.reload();
                                 }}
                             >

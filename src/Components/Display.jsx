@@ -10,10 +10,11 @@ import UserDetails from './UserDetails'
 import AlbumItem from './AlbumItem'
 import Navbar from './Navbar'
 import ResetPassword from '../Pages/ResetPassword'
+import Auth from './Auth'
 
 const Display = () => {
     const [user, setUser] = useState();
-    const [from, setFrom] = useState("Login");
+    // const [from, setFrom] = useState("Login");
 
     useEffect(() => {
         const u = localStorage.getItem("user");
@@ -47,15 +48,16 @@ const Display = () => {
                 </div>
             ) : (
                 <div className="d-flex justify-content-center align-items-center vh-100">
-                    {from === "Login" ? (
+                    {/* {from === "Login" ? (
                         <LoginPage setFrom={setFrom} setUser={setUser} />
                     ) : from === "Forgot" ? (
                         <ForgotPassword setFrom={setFrom} />
                     ) : (
                         <RegistraionPage setFrom={setFrom} />
-                    )}
+                    )} */}
                     <Routes>
-                    <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
+                        <Route path='/' element={<Auth setUser={setUser} />} />
+                        <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
                     </Routes>
                 </div>
             )}
