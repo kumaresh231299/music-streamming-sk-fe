@@ -33,8 +33,8 @@ const DisplayHome = () => {
         const fetchSongs = async () => {
             try {
                 const response = await axios.get(
-                    // "https://music-streamming-sk-app-be.onrender.com/api/audio/upload-audio"
-                    "http://localhost:4000/api/audio/upload-audio"
+                    "https://music-streamming-sk-app-be.onrender.com/api/audio/upload-audio"
+                    // "http://localhost:4000/api/audio/upload-audio"
                 );
                 setSongs(response.data.result);
 
