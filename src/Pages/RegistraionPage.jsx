@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const RegistraionPage = ({ setFrom }) => {
     const [showPassword, setShowPassword] = useState(false);
@@ -50,7 +51,7 @@ const RegistraionPage = ({ setFrom }) => {
                     <h2 className="card-title text-center">User Registration</h2>
                     <p className="text-center text-muted">Create your account to get started.</p>
                     <form onSubmit={formik.handleSubmit} className="space-y-4 mt-4">
-                        
+
                         {/* FirstName Input */}
                         <div className="mb-3">
                             <input
@@ -104,16 +105,21 @@ const RegistraionPage = ({ setFrom }) => {
 
                         {/* Password Input */}
                         <div className="mb-3 position-relative">
-                            <input
-                                id="password"
-                                name="password"
-                                type={showPassword ? "text" : "password"}
-                                placeholder="Password"
-                                className={`form-control ${formik.touched.password && formik.errors.password ? "is-invalid" : ""}`}
-                                value={formik.values.password}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                            />
+                            <div className="input-group">
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder="Password"
+                                    className={`form-control ${formik.touched.password && formik.errors.password ? "is-invalid" : ""}`}
+                                    value={formik.values.password}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+                                <button type="button" className="btn btn-outline-secondary" onClick={()=>setShowPassword(!showPassword)}>
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </button>
+                            </div>
                             {formik.touched.password && formik.errors.password && (
                                 <div className="invalid-feedback">{formik.errors.password}</div>
                             )}
@@ -126,7 +132,7 @@ const RegistraionPage = ({ setFrom }) => {
                     </form>
 
                     {/* Navigate to Login Page */}
-                    <div className="mt-4 text-center" style={{cursor :"pointer"}}>
+                    <div className="mt-4 text-center" style={{ cursor: "pointer" }}>
                         <p>Already have an account? <span onClick={() => setFrom("Login")} className="text-primary" style={{ cursor: 'pointer' }}>Sign In</span></p>
                     </div>
                 </div>

@@ -80,6 +80,7 @@ const LoginPage = ({ setFrom, setUser }) => {
 
                         {/* Password Input */}
                         <div className="form-group mb-3 position-relative">
+                            <div className="input-group">
                             <input
                                 id="password"
                                 type={showPassword ? "text" : "password"}
@@ -90,6 +91,10 @@ const LoginPage = ({ setFrom, setUser }) => {
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                             />
+                            <button type="button" className="btn btn-outline-secondary" onClick={()=>setShowPassword(!showPassword)}>
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                            </button>
+                            </div>
                             
                             {formik.touched.password && formik.errors.password && (
                                 <div className="invalid-feedback">{formik.errors.password}</div>

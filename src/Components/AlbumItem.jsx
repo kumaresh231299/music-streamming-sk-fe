@@ -10,8 +10,8 @@ const AlbumItem = () => {
   const { id } = useParams(); //Playlist ID from the URL
   const [playlistDetails, setPlaylistDetails] = useState(null);
 
-  // const navigate = useNavigate();
-  // const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const { songs, setSongs, setTrackIndex } = MusicState();
 
@@ -33,22 +33,22 @@ const AlbumItem = () => {
   console.log("playlistDetails:  ", playlistDetails)
 
   // Handle back navigation
-  // const handleBack = () => {
-  //   if (location.pathname !== "/") {
-  //     navigate(-1);
-  //   }
-  // };
+  const handleBack = () => {
+    if (location.pathname !== "/") {
+      navigate(-1);
+    }
+  };
 
   return (
-    <div className="container">
+    <div className="">
       {/* Back Button */}
-      {/* <button
+      <button
                 onClick={handleBack}
                 className="mb-1 btn btn-secondary rounded"
                 aria-label="Go Back"
             >
                 <GrPrevious />
-            </button> */}
+            </button>
       {playlistDetails ? (
         <>
           <h2 className="mb-4">
@@ -65,7 +65,7 @@ const AlbumItem = () => {
                   <img
                     src={song?.img} class="card-img-top" alt="songImg" />
                   <div className="card-body">
-                    <h5 className="card-title">{song?.name}</h5>
+                    <h6 className="card-title" style={{whiteSpace: "nowrap"}}>{song?.name}</h6>
                     <p className="card-text">{song?.desc?.length > 50 ? `${song?.desc?.slice(0, 50)}...` : song?.name}</p>
                   </div>
                 </div>

@@ -18,7 +18,7 @@ const Navbar = () => {
             <div className="d-flex justify-content-between">
                 <div className="d-flex align-items-center">
                     <Button className="d-md-none btn btn-dark mx-2" onClick={toggleSidebar}>
-                        {isOpen ? <IoMdCloseCircle /> : <MdMenu />}
+                        {isOpen ? <IoMdCloseCircle size={24}/> : <MdMenu size={24}/>}
                     </Button>
                     <SiSongkick size={40} color="#fff" />
                 </div>

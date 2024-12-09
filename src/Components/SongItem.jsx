@@ -11,16 +11,19 @@ const SongItem = ({ index, name, img, desc, id, url, category }) => {
     setIsExpanded(!isExpanded);
   };
 
+  // Truncate name if it's longer than 20 characters
+  const truncatedName = name.length > 20 ? `${name.slice(0, 20)}...` : name;
+
   return (
     <div
       onClick={() => setTrackIndex(index)}
-      className="card bg-secondary"
-      style={{ width: "10rem" }}> 
+      className="card custom-song-card text-white bg-dark "
+      style={{ width: "10rem", margin: "1rem" }}> 
       
-      <img src={img} class="card-img-top" alt="songImg" className="p-1" />
+      <img src={img} className="card-img-top" alt="songImg" />
       <div className="card-body">
-        <h5 className="card-title">{name}</h5>
-        <p class="card-text">{desc.length > 50 ? `${desc.slice(0, 80)}...` : desc}</p>
+        <h6 className="card-title song-title">{truncatedName}</h6>
+        <p className="card-text song-desc">{desc.length > 15 ? `${desc.slice(0, 16)}...` : desc}</p>
 
       </div>
     </div>
