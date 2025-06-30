@@ -17,13 +17,13 @@ const SongItem = ({ index, name, img, desc, id, url, category }) => {
   return (
     <div
       onClick={() => setTrackIndex(index)}
-      className="card custom-song-card text-white bg-dark "
-      style={{ width: "10rem", margin: "1rem" }}> 
+      className="card custom-song-card text-white "
+      style={{ width: "10rem", margin: "1rem", backgroundColor:"#2c3e50" }}> 
       
       <img src={img} className="card-img-top" alt="songImg" />
       <div className="card-body">
         <h6 className="card-title song-title">{truncatedName}</h6>
-        <p className="card-text song-desc">{desc.length > 15 ? `${desc.slice(0, 16)}...` : desc}</p>
+        <p className="card-text song-desc">{desc?.length > 15 ? `${desc.slice(0, 16)}...` : desc}</p>
 
       </div>
     </div>

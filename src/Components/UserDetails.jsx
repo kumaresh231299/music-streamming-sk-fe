@@ -8,8 +8,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const UserDetails = () => {
-    // const navigate = useNavigate();
-    // const location = useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     // State to manage edit
     const [isEditing, setIsEditing] = useState(false);
@@ -34,11 +34,11 @@ const UserDetails = () => {
 
 
     // Handle back navigation
-    // const handleBack = () => {
-    //     if (location.pathname !== "/") {
-    //         navigate(-1);
-    //     }
-    // };
+    const handleBack = () => {
+        if (location.pathname !== "/") {
+            navigate(-1);
+        }
+    };
 
     // Toggle edit mode
     const handleEdit = (e) => {
@@ -70,15 +70,14 @@ const UserDetails = () => {
     };
 
     return (
-        <div className="">
-            {/* Back Button */}
-            {/* <button
+        <div className="" style={{ marginBottom: "200px" }}>
+            <button
                 onClick={handleBack}
                 className="mb-1 btn btn-secondary rounded"
                 aria-label="Go Back"
             >
                 <GrPrevious />
-            </button> */}
+            </button>
 
             {/* User Details Container */}
             <div className="max-w-lg w-100 p-4 mt-1 mb-4 bg-white rounded-lg shadow">

@@ -1,18 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { FaAngleUp, FaEllipsisH } from "react-icons/fa";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { MusicState } from "../Context/MusicContext";
 import { GrPrevious } from "react-icons/gr";
 
 const AlbumItem = () => {
-  // { index, name, img, desc, id, url, category }
-  const { id } = useParams(); //Playlist ID from the URL
+  const { id } = useParams();
   const [playlistDetails, setPlaylistDetails] = useState(null);
 
   const navigate = useNavigate();
   const location = useLocation();
-
   const { songs, setSongs, setTrackIndex } = MusicState();
 
   useEffect(() => {
@@ -24,15 +21,12 @@ const AlbumItem = () => {
         setPlaylistDetails(response?.data?.playlist);
         setSongs(response?.data?.playlist?.playlist);
       } catch (error) {
-        console.error("Error fetching playlist details :   ", error);
+        console.error("Error fetching playlist details: ", error);
       }
     };
     fetchPlaylistDetails();
   }, [id]);
 
-  console.log("playlistDetails:  ", playlistDetails)
-
-  // Handle back navigation
   const handleBack = () => {
     if (location.pathname !== "/") {
       navigate(-1);
@@ -40,43 +34,54 @@ const AlbumItem = () => {
   };
 
   return (
-    <div className="">
+    <div className="container py-4">
       {/* Back Button */}
-      <button
-                onClick={handleBack}
-                className="mb-1 btn btn-secondary rounded"
-                aria-label="Go Back"
-            >
-                <GrPrevious />
-            </button>
+      <div className="mb-3">
+        <button onClick={handleBack} className="btn btn-secondary rounded" aria-label="Go Back">
+          <GrPrevious /> Back
+        </button>
+      </div>
+
+      {/* Playlist Title */}
       {playlistDetails ? (
         <>
-          <h2 className="mb-4">
-            {playlistDetails.playlistName}
-          </h2>
-          {playlistDetails.playlist && playlistDetails?.playlist?.length > 0 ? (
-            <div className="row">
+          <h2 className="mb-4 fw-bold">{playlistDetails.playlistName}</h2>
+
+          {/* Songs Grid */}
+          {playlistDetails.playlist && playlistDetails.playlist.length > 0 ? (
+            <div className="row" style={{marginBottom:"110px"}}>
               {songs?.map((song, index) => (
                 <div
                   key={song?._id}
+                  className="col-md-3 col-sm-6 mb-4"
                   onClick={() => setTrackIndex(index)}
-                  className="card mx-2"
-                  style={{ width: "10rem", cursor: "pointer" }}>
-                  <img
-                    src={song?.img} class="card-img-top" alt="songImg" />
-                  <div className="card-body">
-                    <h6 className="card-title" style={{whiteSpace: "nowrap"}}>{song?.name}</h6>
-                    <p className="card-text">{song?.desc?.length > 50 ? `${song?.desc?.slice(0, 50)}...` : song?.name}</p>
+                  style={{ cursor: "pointer" }}
+                >
+                  <div className="card shadow-sm h-100 border-0 hover-shadow" style={{ backgroundColor: "#f8f9fa" }}>
+                    <img
+                      src={song?.img}
+                      alt="song"
+                      className="card-img-top"
+                      style={{ height: "130px", objectFit: "cover" }}
+                    />
+                    <div className="card-body d-flex flex-column">
+                      <h6 className="card-title text-truncate">{song?.name}</h6>
+                      <p className="card-text text-muted small">
+                        {song?.desc?.length > 60
+                          ? `${song?.desc.slice(0, 60)}...`
+                          : song?.desc}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <p>No songs available in this playlist.</p>
+            <p className="text-muted">No songs available in this playlist.</p>
           )}
         </>
       ) : (
-        <p>Loading playlist details...</p>
+        <p className="text-muted">Loading playlist details...</p>
       )}
     </div>
   );

@@ -14,7 +14,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="bg-dark py-2 px-2">
+        <div className="bg-dark py-2 px-2 fixed-top shadow">
             <div className="d-flex justify-content-between">
                 <div className="d-flex align-items-center">
                     <Button className="d-md-none btn btn-dark mx-2" onClick={toggleSidebar}>

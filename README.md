@@ -34,3 +34,4 @@ The following technologies are used in the frontend of this application:
 - **Yup** : For form validation schema.
 - **Axios** : For HTTP requests to the backend API.
 - **React-Toastify** : For toast notifications.
+- **React-fast-marquee** : For smooth horizontal scrolling of song datils.

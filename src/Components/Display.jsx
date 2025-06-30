@@ -24,7 +24,7 @@ const Display = () => {
             {user ? (
                 <div>
                     <Navbar />
-                    <div className="row g-0 vh-100 bg-dark">
+                    <div className="row g-0 vh-100 bg-dark" style={{marginTop:"50px"}}>
                         {/* Sidebar */}
                         <div className="col-12 col-md-2 col-lg-3 bg-dark p-0">
                             <Sidebar />
